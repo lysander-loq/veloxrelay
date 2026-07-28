@@ -1,0 +1,32 @@
+# VeloxRelay configuration file
+# if any format option is left blank (""), it's corresponding
+# message broadcast will be disabled, if unspecified it will
+# default to it's respective default format
+
+webhooks:
+- "URLHERE" # non-https prefixed strings are ignored
+
+# Message format for any chat message received
+# {server} will be replaced with the server name
+# {player} will be replaced with the player's username
+# {message} will be replaced with the message sent by the player
+format: "`{server}` **{player}**: {message}"
+
+# Message format for when a player joins the proxy
+# {player} will be replaced with the player's username
+joinformat: "**{player}** has connected to the proxy."
+
+# Message format for when a player enters a server
+# {server} will be replaced with the server name
+# {player} will be replaced with the player's username
+enterformat: "**{player}** has entered `{server}`."
+
+# Message format for when a player leaves the proxy
+# {player} will be replaced with the player's username
+leaveformat: "**{player}** has disconnected from the proxy."
+
+# For developers wanting to implement their own features
+# using the webhooks registered on this config file, they may
+# cast messages using the following method under this plugin:
+#  (void) dev.lysander.veloxrelay.MainClass#broadcastMessage(java.lang.String)
+# which i purposely declared public for this very usage

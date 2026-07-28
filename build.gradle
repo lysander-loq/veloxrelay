@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'com.gradleup.shadow' version '9.0.0'
+}
+group = 'dev.lysander'
+version = '1.0.0'
+repositories {
+    mavenCentral()
+    maven {
+        name = 'papermc'
+        url = 'https://repo.papermc.io/repository/maven-public/'
+    }
+}
+dependencies {
+    compileOnly 'com.velocitypowered:velocity-api:3.4.0'
+    annotationProcessor 'com.velocitypowered:velocity-api:3.4.0'
+    implementation 'org.spongepowered:configurate-yaml:4.2.0'
+    implementation 'org.bstats:bstats-velocity:3.2.1'
+}
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+tasks.jar {
+    enabled = false
+}
+tasks.shadowJar {
+    archiveBaseName = 'VeloxRelay'
+    archiveClassifier = ''
+    relocate(
+        'org.bstats',
+        'dev.lysander.veloxrelay.libs.bstats'
+    )
+}
