@@ -47,7 +47,7 @@ jobs:
         uses: cloudnode-pro/modrinth-publish@v2
         with:
           token: ${{ secrets.MODRINTH_VERSION_PAT }}
-          project: nsZf0dsg
+          project: ${{ vars.MODRINTH_PROJECT_ID }}
           version: ${{ steps.version.outputs.version }}
           loaders: velocity
           game-versions: |-
