@@ -22,4 +22,4 @@ And you should be good to go! :P
 Feel free to open an [Issue](<https://github.com/lysander-loq/veloxrelay/issues>) if you wish to report a bug or give me suggestions on what i could add to this project :3 
 
 For developers wanting to implement their own features using the webhooks registered on this plugin, they can cast messages using the method
-`broadcastMessage(java.lang.String)` on the plugin's class
+`broadcastMessage(java.lang.String)` on the plugin's running instance
